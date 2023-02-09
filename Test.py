@@ -1,4 +1,3 @@
-import pygame
 import tkinter
 import random
 
@@ -72,11 +71,11 @@ def convert_from(number, base):
 
 
 #
-rgb_start = Color()
-rgb_start.get_color()
+# rgb_start = Color()
+# rgb_start.get_color()
 # rgb_end.get_color()
-print(f"R10 - {rgb_start.red_10} \nG10 - {rgb_start.green_10} \nB10 - {rgb_start.blue_10}")
-print(f"R16 - {rgb_start.red_16} \nG16 - {rgb_start.green_16} \nB16 - {rgb_start.blue_16}")
-print(f"{rgb_start.HTML}")
+# print(f"R10 - {rgb_start.red_10}, G10 - {rgb_start.green_10}, B10 - {rgb_start.blue_10}")
+# print(f"R16 - {rgb_start.red_16} \nG16 - {rgb_start.green_16} \nB16 - {rgb_start.blue_16}")
+# print(f"{rgb_start.HTML}")
 # digit = "0123456789"
 # print(digit[0:5])
