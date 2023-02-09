@@ -1,4 +1,7 @@
 import pygame
+import tkinter
+import random
+
 class Color:
     def __init__(self):
         self.red_10 = "00"
