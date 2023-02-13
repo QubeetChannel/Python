@@ -5,22 +5,31 @@ class Block:
         self.Row = row
         self.Column = column
 
-        self.button = Button(master, font=('Verdana', 25), relief="ridge", overrelief="ridge")
-        self.button['text'] = buttonList[row + 1][column]
+        ###   СОЗДАНИЕ И НАИМЕНОВАНИЕ КНОПКИ   ###
+        self.button = Button(master, font=('Verdana', 25), relief="raised", overrelief="ridge")
         self.button.place(x=column * 100, y=row * 100 + 150, width=100, height=100)
+        self.button['text'] = buttonList[row + 1][column]
+        self.out_touch(self)
+
+        ###   БИНДЫ ДЛЯ КНОПОК   ###
         self.button.bind('<Button-1>', self.handler)
-        self.button.bind("<Enter>", self.inTouch)
-        self.button.bind("<Leave>", self.standartColor)
-        self.standartColor(self)
+        self.button.bind("<Enter>", self.in_touch)
+        self.button.bind("<Leave>", self.out_touch)
 
-    def standartColor(self, event):
-        if buttonColorList[self.Row + 1][self.Column] == '0': self.button['background'] = '#544080'
-        if buttonColorList[self.Row + 1][self.Column] == '1': self.button['background'] = '#FFFFFF'
+    ###   ФУНКЦИИ ДЛЯ ДИЗАЙНА КНОПОК   ###
+    def out_touch(self, event):
+        if buttonColorList[self.Row + 1][self.Column] == '0':
+            self.button.configure(background='#FFC618', relief='raised', overrelief='ridge')
+        elif buttonColorList[self.Row + 1][self.Column] == '1':
+            self.button.configure(background='#FFFFFF', relief='raised', overrelief='ridge')
 
-    def inTouch(self, event):
-        if buttonColorList[self.Row + 1][self.Column] == '0': self.button['background'] = '#544080'
-        if buttonColorList[self.Row + 1][self.Column] == '1': self.button['background'] = 'gray'
+    def in_touch(self, event):
+        if buttonColorList[self.Row + 1][self.Column] == '0':
+            self.button.configure(background='#FFCC00', relief='flat', overrelief='flat')
+        elif buttonColorList[self.Row + 1][self.Column] == '1':
+            self.button.configure(background='lightgray', relief='flat', overrelief='flat')
 
+    ###   ОБРАБОТЧИК ДЛЯ КНОПОК   ###
     def handler(self, event):
         try:
             int(self.button['text'])
@@ -35,9 +44,7 @@ class Block:
         else:
             label['text'] += self.button['text']
 
-
-
-'''УСТАНОВОЧНЫЕ СЛОВАРИ'''
+###   УСТАНОВОЧНЫЕ СЛОВАРИ   ###
 buttonList = {
     1: '()%E',
     2: '789/',
@@ -54,7 +61,7 @@ buttonColorList = {
     5: '1100'
 }
 
-'''НАЧАЛО ПРОГРАММЫ'''
+###   НАЧАЛО ПРОГРАММЫ   ###
 root = Tk()
 root.title('Calculator')
 root.geometry('400x650')
