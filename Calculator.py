@@ -25,9 +25,9 @@ class Block:
 
     def in_touch(self, event):
         if buttonColorList[self.Row + 1][self.Column] == '0':
-            self.button.configure(background='#FFCC00', relief='flat', overrelief='flat')
+            self.button.configure(background='#FFCC00', relief='groove', overrelief='ridge')
         elif buttonColorList[self.Row + 1][self.Column] == '1':
-            self.button.configure(background='lightgray', relief='flat', overrelief='flat')
+            self.button.configure(background='lightgray', relief='groove', overrelief='ridge')
 
     ###   ОБРАБОТЧИК ДЛЯ КНОПОК   ###
     def handler(self, event):
@@ -58,7 +58,7 @@ buttonColorList = {
     2: '1110',
     3: '1110',
     4: '1110',
-    5: '1100'
+    5: '1110'
 }
 
 ###   НАЧАЛО ПРОГРАММЫ   ###
