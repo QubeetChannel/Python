@@ -25,9 +25,9 @@ class Block:
 
     def in_touch(self, event):
         if buttonColorList[self.Row + 1][self.Column] == '0':
-            self.button.configure(background='#FFCC00', relief='groove', overrelief='ridge')
+            self.button.configure(background='#FFCC00', relief='flat', overrelief='flat')
         elif buttonColorList[self.Row + 1][self.Column] == '1':
-            self.button.configure(background='lightgray', relief='groove', overrelief='ridge')
+            self.button.configure(background='lightgray', relief='flat', overrelief='flat')
 
     ###   ОБРАБОТЧИК ДЛЯ КНОПОК   ###
     def handler(self, event):
@@ -45,21 +45,21 @@ class Block:
             label['text'] += self.button['text']
 
 ###   УСТАНОВОЧНЫЕ СЛОВАРИ   ###
-buttonList = {
+buttonList = ({
     1: '()%E',
     2: '789/',
     3: '456*',
     4: '123-',
     5: '0.=+'
-}
+})
 
-buttonColorList = {
+buttonColorList = ({
     1: '0000',
     2: '1110',
     3: '1110',
     4: '1110',
-    5: '1110'
-}
+    5: '1100'
+})
 
 ###   НАЧАЛО ПРОГРАММЫ   ###
 root = Tk()
